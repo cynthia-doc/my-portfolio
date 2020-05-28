@@ -14,12 +14,25 @@
 
 #TechCorner {
     background-color: #F0EDE5;
+    text-align: right;
 }
 
 #Contact {
     background-color: #F0EDE5;
+    text-align: right;
 }
 
+
+img.image {
+    float: right;
+}
+
+p.intro {
+    width: 50%;
+    white-space: pre-wrap;  
+    word-wrap: break-word;
+
+}
 
 h1 {
     color: #C0AB8E;
@@ -31,6 +44,7 @@ h1 {
 h2 {
     color: #A9754F;
     font-family: "Playfair Display SC";
+    font-size: 30px;
 }
 
 ul {
@@ -48,7 +62,7 @@ li {
 
 li a {
   font-family: "Codystar";
-  font-size: 30px;
+  font-size: 23px;
   display: block;
   color: #485167;
   text-decoration: none;
@@ -64,4 +78,5 @@ li a:hover {
 p {
     font-family: "Lato";
     color: #2E4A62;
+    font-size: 25px;
 }
