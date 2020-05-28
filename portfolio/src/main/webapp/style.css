@@ -1,9 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Major Mono Display');
+@import url('https://fonts.googleapis.com/css?family=Codystar');
+@import url('https://fonts.googleapis.com/css?family=Playfair Display SC');
+
 #content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 650px;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 #greeting-container {
   margin-top: 20px;
+  
+}
+
+#TechCorner {
+    background-color: #F0EDE5;
+}
+
+#Contact {
+    background-color: #F0EDE5;
+}
+
+
+h1 {
+    color: #C0AB8E;
+    text-align: center;
+    font-family: "Major Mono Display";
+    font-size: 45px;
+}
+
+h2 {
+    color: #A9754F;
+    font-family: "Playfair Display SC";
+}
+
+ul {
+    list-style-type: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+li {
+    float: left;
+    width: 25%;
+}
+
+li a {
+  font-family: "Codystar";
+  font-size: 30px;
+  display: block;
+  color: #485167;
+  text-decoration: none;
+  text-align: center;
+  padding: 14px 16px;
+} 
+
+
+li a:hover {
+    color: #B4B7BA;
+}
+
+p {
+    font-family: "Lato";
+    color: #2E4A62;
 }

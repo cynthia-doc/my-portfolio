@@ -1,18 +1,59 @@
 <!DOCTYPE html>
 <html>
-  <head>
+    <head>
     <meta charset="UTF-8">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
-  </head>
-  <body>
+    </head>
+    <body>
     <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
+
+        <h1>Cynthia HU</h1>
+        <ul class="navbar">
+            <li><a href="#About">About</a></li>
+            <li><a href="#TechCorner">Tech Corner</a></li>
+            <li><a href="#TravelLog">Travel Log</a></li>
+            <li><a href="#Contact">Contact</a></li>
+        </ul>
+        <div id="About">
+            <h2>About</h2>
+            <pre><p>
+                Hello there! This is Cynthia Hu and welcome to my portfolio. 
+                
+                A bit about myself: I am currently a rising junior at Carnegie Mellon University majoring in computer science and minoring in psychology.
+                I grew up in Shenzhen, China, and then Fremont, California.
+                In my free times, I love to dance, especially contemporary, jazz, and urban. I also love to travel when a longer break is alloted.
+
+                <img src="/images/profile3.jpg" alt="me in Hokkaido, Japan" width="400" height="300"
+                    srcset="/images/profile3.jpg 400w, 
+                            /images/profile3.jpg 800w, 
+                            /images/profile3.jpg 1200w"
+                    sizes="(max-width: 400px) 200px,
+                            (max-width: 800px) 400px,
+                            (max-width: 1200px) 800px,
+                            1200px"
+                >
+            </p></pre>
+        </div>
+
+        <p>Click here to get a random message:</p>
+        <button onclick="addRandomGreeting()">Hello</button>
+
+        <div id="greeting-container"></div>
+
+        <div id="TechCorner">
+            <h2>Tech Corner</h2>
+        </div>
+
+        <div id="TravelLog">
+            <h2>Travel Log</h2>
+        </div>
+
+        <div id="Contact">
+            <h2>Contact</h2>
+        </div>
+        
     </div>
-  </body>
+    </body>
 </html>
