@@ -21,8 +21,8 @@ function plusSlides(n) {
 }
 
 function showSlides(n) {
-  let slides = document.getElementsByClassName("mySlides");
-  let firstSlide = document.getElementById("firstSlide");
+  let slides = document.getElementsByClassName("slides");
+  let firstSlide = document.getElementById("first-slide");
   if (n > slides.length + 1) {slideIndex = 1}
   if (n < 1) {slideIndex = slides.length + 1}
   for (let index = 0; index < slides.length; index++) {

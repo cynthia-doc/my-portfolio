@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Major Mono Display');
-@import url('https://fonts.googleapis.com/css?family=Codystar');
-@import url('https://fonts.googleapis.com/css?family=Nothing You Could Do');
+@import url(https://fonts.googleapis.com/css?family=Major+Mono+Display);
+@import url(https://fonts.googleapis.com/css?family=Codystar);
+@import url(https://fonts.googleapis.com/css?family=Nothing+You+Could+Do);
 
 #content {
-  margin-left: 15%;
-  margin-right: 15%;
+  margin: 0 15%;
 }
 
 #greeting-container {
@@ -12,11 +11,11 @@
   
 }
 
-#TechCorner {
+#tech-corner {
     background-color: #F0EDE5;
 }
 
-.right_title {
+.right-title {
     text-align: right;
 }
 
@@ -27,22 +26,21 @@
     width: 100%;
 }
 
-.techprojects {
+.tech-projects {
     display: flex;
     flex-direction: column;
     flex-basis: 100%;
     flex: 1;
 }
 
-#Contact {
+#contact {
     background-color: #F0EDE5;
-    text-align: right;
 }
 
 
 img.image {
     float: right;
-    padding: 20px;
+    margin: 20px;
 }
 
 p.intro, div a {
@@ -59,7 +57,7 @@ p.intro, div a {
 }
 
 #movies{
-    font-family: 'Major Mono Display';
+    font-family: 'Major Mono Display', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: #a2a6a9;
     font-size: 25px;
     text-decoration: none;
@@ -75,12 +73,12 @@ p.intro, div a {
 }
 
 
-#firstSlide {
+#first-slide {
     box-sizing: border-box;
     display: block;
 }
 
-.mySlides {
+.slides {
     box-sizing: border-box;
     display: none;
 }
@@ -117,7 +115,7 @@ p.intro, div a {
 .text {
   color: #EAE6DA;
   font-size: 20px;
-  font-family: "Lato";
+  font-family: "Lato", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   padding: 8px 12px;
   position: absolute;
   bottom: 8px;
@@ -130,7 +128,7 @@ p.intro, div a {
 .numbertext {
   color: #EAE6DA;
   font-size: 18px;
-  font-family: "Lato";
+  font-family: "Lato", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   padding: 8px 12px;
   position: absolute;
   top: 0;
@@ -160,18 +158,18 @@ p.intro, div a {
 h1 {
     color: #C0AB8E;
     text-align: center;
-    font-family: "Major Mono Display";
+    font-family: "Major Mono Display", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 45px;
 }
 
 h2 {
     color: #A9754F;
-    font-family: "Nothing You Could Do";
+    font-family: "Nothing You Could Do", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 35px;
 }
 
 p, a {
-    font-family: "Lato";
+    font-family: "Lato", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: #2E4A62;
     font-size: 25px;
     text-decoration: none;
@@ -183,17 +181,15 @@ a:hover {
 }
 
 h3, h3 a {
-    font-family: "Lato";
+    font-family: "Lato", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 35px;
     color: #485167;
 }
 
-/* general setting */
-
 
 
 /* navigation bar setting */
-ul {
+.navbar {
     list-style-type: none;
     overflow: hidden;
     margin: 0;
@@ -204,13 +200,13 @@ ul {
     z-index: 100;
 }
 
-li {
+.navbar li {
     float: left;
     width: 25%;
 }
 
-li a {
-  font-family: "Codystar";
+.navbar li a {
+  font-family: "Codystar", 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-shadow: 1px 0px black;
   font-size: 23px;
   display: block;
@@ -220,9 +216,8 @@ li a {
   padding: 14px 16px;
 } 
 
-li a:hover {
+.navbar li a:hover {
     color: #B4B7BA;
 }
-/* navigation bar setting */
 
 
