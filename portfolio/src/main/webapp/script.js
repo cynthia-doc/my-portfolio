@@ -12,23 +12,23 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+/** slideIndex is a global variable */ 
 var slideIndex = 1;
 
-// Next/previous controls
+/** Next/previous controls */
 function plusSlides(n) {
   showSlides(slideIndex += n);
 }
 
 function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var firstSlide = document.getElementById("firstSlide");
+  let slides = document.getElementsByClassName("mySlides");
+  let firstSlide = document.getElementById("firstSlide");
   if (n > slides.length + 1) {slideIndex = 1}
   if (n < 1) {slideIndex = slides.length + 1}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
+  for (let index = 0; index < slides.length; index++) {
+      slides[index].style.display = "none";
   }
-  if (slideIndex == 1){
+  if (slideIndex < 2) {
       firstSlide.style.display = "block";
   }
   else{
@@ -38,18 +38,30 @@ function showSlides(n) {
 }
 
 /**
- * Adds a random greeting to the page.
+ * Recommend movies
  */
-function printRandomQuotes() {
-  const quotes =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+function movieRecommender() {
+    const movies =
+        ['Just my favorite: Begin Again',
+        'For some good music: August Rush', 
+        'For some Studio Ghibli time: Howl\'s Moving Castle', 
+        'For a girl\'s night classics: Legally Blonde',
+        'For a good tearjerker: The Farewell',
+        'For Christmas: The Holiday',
+        'For a Disney romance: Enchanted',
+        'For some sci-fi: Divergent'];
 
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+    // Add it to the page.
+    const movieContainer = document.getElementById('movie-container');
 
-  // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
+    let movie = 0;
+
+    const next = () => {
+        movieContainer.innerText = movies[movie];
+        setTimeout(next, 1600);
+        movie = (movie + 1) % movies.length;
+    }
+    next();
 }
 
 

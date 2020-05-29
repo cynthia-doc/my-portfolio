@@ -37,16 +37,61 @@
             <a target="_blank" rel="noopener noreferrer" href="https://www.allure.com/story/aquarius-zodiac-sign-personality-traits">If you are into astrology...</a><br>
             <a target="_blank" rel="noopener noreferrer" href="https://www.16personalities.com/esfj-personality">If you are into 16 personalities...</a><br>
             <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=tWN517PBkGc">Oh, and I dance! Here is a throwback to good old days in highschool...</a><br>
-            
+
+            <p>And here are some movies I love:</p>
         </div>
-
-        <p>Click here to get a random message:</p>
-        <button onclick="addRandomGreeting()">Hello</button>
-
-        <div id="greeting-container"></div>
+        <div id="movie-container"><body onload="movieRecommender()" id="movies"></div><br>
 
         <div id="TechCorner">
-            <h2>Tech Corner</h2>
+            <h2 class="right_title">Tech Corner</h2>
+            <div class="row">
+                <div class="techprojects">
+                    <h3>Malloc</h3>
+                    <p>
+                        An implementation of malloc using a segmented list structure with twelve size classes.<br>
+                        The first size class is a non-circular single linked list of mini blocks of size 16 (minimum block size), which only have a header 
+                        and a pointer to the next free mini block.<br>
+                        The rest of the size classes are non-circular double linked lists with regular blocks, 
+                        which has a header and a union of a footer and a struct containing the two pointers for the double linked list.<br>
+                        We use LIFO for insertion policy when freeing blocks. And blocks are coalesced right after it is freed and before it is inserted.<br>
+                        <br>
+                        When allocating blocks, we use a modified best fit policy, which examines a maximum of 80 blocks, to find a free block.<br>
+                        This is a footerless implementation, so when a block is allocated, it no longer has a footer.
+                    </p>
+                </div>
+                <div class="techprojects">
+                    <h3>Shell</h3>
+                    <p>
+                        An implementation of a tiny shell with job control.<br>
+                        The shell has four builtin commands (quit, jobs, fg job, bg job) and runs non-builtin commands as child processes.
+                        Only one foreground job runs at a time, and all zombie child processes are reaped right away.<br>
+                        Signals are forwarded to the entire process group that contains the foreground job.<br>
+                        The shell supports I/O redirection for files and builtin command 'jobs' output. But the shell does not support piping.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="techprojects">
+                    <h3>Proxy</h3>
+                    <p>
+                        A simple computer program that acts as an intermediary between clients 
+                        making requests to access resources and the servers that satisfy those 
+                        requests by serving content. It only handles HTTP/1.0 GET requests. 
+                        It supports multiple concurrent requests and caches web resources with corresponding url.
+                    </p>
+                </div>
+                <div class="techprojects">
+                    <h3><a href="https://github.com/cynthia-doc/Bias-in-the-Entertainment-Industry/blob/master/Bias%20in%20the%20Entertainment%20Industry--%20Ashely%20Zhange%20(awzhang)%20%26%20Cynthia%20Hu%20(xinyihu).ipynb">Bias in the Entertainment Industry</a></h3>
+                    <p>
+                        A study on the bias in the entertainment industry that looks at data from IMDb and predict the likelihood of 
+                        different types of actors and actresses playing certain genres of film.<br>
+                        To build the model that predicts the likelihood of a celebrity being featured in a certain genre, 
+                        Naive Bayes classifier with categorical predictors based on region, gender, and peak age is used.<br>
+                        The model is then used to train the training set (80% of the collected data) and predict on the test set (20% of the collected data).
+                    </p>
+                </div>
+            </div>
+            
         </div>
 
         <div id="TravelLog">
@@ -123,7 +168,7 @@
         </div>
 
         <div id="Contact">
-            <h2>Contact</h2>
+            <h2 class="right_title">Contact</h2>
         </div>
         
     </div>

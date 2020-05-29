@@ -14,7 +14,24 @@
 
 #TechCorner {
     background-color: #F0EDE5;
+}
+
+.right_title {
     text-align: right;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.techprojects {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
 }
 
 #Contact {
@@ -28,12 +45,26 @@ img.image {
     padding: 20px;
 }
 
-p.intro, div a{
+p.intro, div a {
     width: 50%;
     white-space: pre-wrap;  
     word-wrap: break-word;
 
 }
+
+#movie-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#movies{
+    font-family: 'Major Mono Display';
+    color: #a2a6a9;
+    font-size: 25px;
+    text-decoration: none;
+}
+
 
 /* travel log slideshow setting */
 .slideshow-container{
@@ -151,6 +182,12 @@ a:hover {
     text-decoration: underline;
 }
 
+h3, h3 a {
+    font-family: "Lato";
+    font-size: 35px;
+    color: #485167;
+}
+
 /* general setting */
 
 
@@ -174,6 +211,7 @@ li {
 
 li a {
   font-family: "Codystar";
+  text-shadow: 1px 0px black;
   font-size: 23px;
   display: block;
   color: #485167;
