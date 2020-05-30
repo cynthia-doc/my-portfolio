@@ -1,50 +1,15 @@
 @import url(https://fonts.googleapis.com/css?family=Major+Mono+Display);
 @import url(https://fonts.googleapis.com/css?family=Codystar);
 @import url(https://fonts.googleapis.com/css?family=Nothing+You+Could+Do);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
 
 #content {
   margin: 0 15%;
 }
 
-#greeting-container {
-  margin-top: 20px;
-  
-}
-
-#tech-corner {
-    background-color: #F0EDE5;
-}
-
-#tech-corner p{
-    padding: 18px;
-
-}
-
+/* about section setting */
 #about {
     background-size: contain;
-}
-
-.right-title {
-    text-align: right;
-}
-
-.row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.tech-projects{
-    display: flex;
-    flex-direction: column;
-    flex-basis: 100%;
-    flex: 1;
-}
-
-#contact {
-    background-color: #F0EDE5;
 }
 
 .image-box{
@@ -92,6 +57,36 @@ p.intro, div a {
 }
 
 
+/* tech corner setting */
+#tech-corner {
+    background-color: #F0EDE5;
+}
+
+#tech-corner p{
+    padding: 18px;
+
+}
+
+.right-title {
+    text-align: right;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.tech-projects{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+}
+
+
 /* travel log slideshow setting */
 .slideshow-container{
     box-sizing: border-box;
@@ -99,7 +94,6 @@ p.intro, div a {
     position: relative;
     margin: auto;
 }
-
 
 #first-slide {
     box-sizing: border-box;
@@ -110,7 +104,6 @@ p.intro, div a {
     box-sizing: border-box;
     display: none;
 }
-
 
 /* Next & previous buttons */
 .prev, .next {
@@ -179,7 +172,21 @@ p.intro, div a {
   from {opacity: .4} 
   to {opacity: 1}
 }
-/* travel log slideshow setting */
+
+
+/* contact section setting */
+#contact {
+    background-color: #F0EDE5;
+}
+
+.icons {
+    text-align: right;
+}
+
+.fa {
+    font-size: 40px;
+    margin: 0 10px;
+}
 
 
 /* general setting */
@@ -194,6 +201,7 @@ h2 {
     color: #A9754F;
     font-family: "Nothing You Could Do", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 35px;
+    margin: 0 10px;
 }
 
 p, a {
@@ -208,16 +216,17 @@ a:hover {
     text-decoration: underline;
 }
 
+
 h3, h3 a {
     font-family: "Lato", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 35px;
     color: #485167;
+    margin: 0 10px;
 }
 
-h3 {
-    margin: 0, 10%;
+.section {
+    margin-bottom: 15px
 }
-
 
 
 /* navigation bar setting */
