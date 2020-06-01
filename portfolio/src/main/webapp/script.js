@@ -12,10 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/** slideIndex is a global variable */ 
-var slideIndex = 1;
+let slideIndex = 1;
 
-/** Next/previous controls */
+/** Flips slides to the previous or next page */
 function plusSlides(n) {
   showSlides(slideIndex += n);
 }
