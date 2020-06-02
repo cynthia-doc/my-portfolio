@@ -12,17 +12,55 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/**
- * Adds a random greeting to the page.
- */
-function addRandomGreeting() {
-  const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+let slideIndex = 1;
 
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
-
-  // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
+/** Flips slides to the previous or next page */
+function plusSlides(n) {
+  showSlides(slideIndex += n);
 }
+
+function showSlides(n) {
+  let slides = document.getElementsByClassName("slides");
+  let firstSlide = document.getElementById("first-slide");
+  if (n > slides.length + 1) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length + 1}
+  for (let index = 0; index < slides.length; index++) {
+      slides[index].style.display = "none";
+  }
+  if (slideIndex < 2) {
+      firstSlide.style.display = "block";
+  }
+  else{
+      slides[slideIndex - 2].style.display = "block";
+      firstSlide.style.display = "none";
+  }
+}
+
+/**
+ * Recommend movies
+ */
+function movieRecommender() {
+    const movies =
+        ['Just my favorite: Begin Again',
+        'For some good music: August Rush', 
+        'For some Studio Ghibli time: Howl\'s Moving Castle', 
+        'For a girl\'s night classics: Legally Blonde',
+        'For a good tearjerker: The Farewell',
+        'For Christmas: The Holiday',
+        'For a Disney romance: Enchanted',
+        'For some sci-fi: Divergent'];
+
+    // Add it to the page.
+    const movieContainer = document.getElementById('movie-container');
+
+    let movie = 0;
+
+    const next = () => {
+        movieContainer.innerText = movies[movie];
+        setTimeout(next, 1600);
+        movie = (movie + 1) % movies.length;
+    }
+    next();
+}
+
+
