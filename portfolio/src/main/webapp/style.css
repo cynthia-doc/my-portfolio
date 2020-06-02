@@ -12,6 +12,16 @@
     background-size: contain;
 }
 
+button {
+    font-family: "Lato", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #2E4A62;
+    font-size: 16px;
+}
+
+#greeting-container {
+    margin-bottom: 20px;
+}
+
 .image-box{
     float: right;
     width: 40%;

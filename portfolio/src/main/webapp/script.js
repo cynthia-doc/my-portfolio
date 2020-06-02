@@ -63,4 +63,8 @@ function movieRecommender() {
     next();
 }
 
-
+function getGreetingUsingArrowFunctions() {
+  fetch('/data').then(response => response.text()).then((quote) => {
+    document.getElementById('greeting-container').innerText = quote;
+  });
+}
