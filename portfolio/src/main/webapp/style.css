@@ -12,10 +12,11 @@
     background-size: contain;
 }
 
-button {
+#greeting-button {
     font-family: "Lato", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: #2E4A62;
     font-size: 16px;
+    background-color: #F0EDE5;
 }
 
 #greeting-container {
