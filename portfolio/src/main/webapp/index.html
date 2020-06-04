@@ -36,15 +36,16 @@
             <p>And here are some movies I love:</p>
             
         </div>
-        <div id="movie-container"><body onload="movieRecommender()" id="movies" class="section"></div><br>
-        <div id="comments">
+        <div id="movie-container"><body onload="onLoad()" id="movies" class="section"></div><br>
+
+        <div id="comment-section">
             <h2>Comments</h2>
             <form action="/data" method="POST">
                 <label for="new-comment">Leave your movie recommendation here: </label>
                 <input type="text" id="new-comment" name='new-comment'>
                 <input type="submit" value="Submit">
             </form>
-            <div id="comment-container"><body onload="getComments()"></div>
+            <ul id="comment-container"></ul><br>
         </div>
         
         <div id="tech-corner" class="section">

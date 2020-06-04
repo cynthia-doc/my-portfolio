@@ -36,6 +36,11 @@ function showSlides(n) {
     }
 }
 
+function onLoad(){
+    movieRecommender();
+    getComments();
+}
+
 /**
  * Recommend movies
  */
@@ -69,15 +74,14 @@ function getComments() {
         container.innerHTML = '';
 
         for(let i = 0; i < comment.length; i++) {
-            alert(comment[i]);
-            container.appendChild(createPElement(comment[i]));
+            container.appendChild(createListElement(comment[i]));
         }
     });
 }
 
-/** Creates an <p> element containing text. */
-function createPElement(text) {
-    const pElement = document.createElement('p');
-    pElement.innerText = text;
-    return pElement;
+/** Creates an <li> element containing text. */
+function createListElement(text) {
+    const liElement = document.createElement('li');
+    liElement.innerText = text;
+    return liElement;
 }
