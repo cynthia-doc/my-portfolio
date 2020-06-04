@@ -25,8 +25,6 @@
             </div>
 
             <p class="intro">Hello there! This is Cynthia Hu and welcome to my portfolio.</p>
-            <button id="greeting-button" onclick="getGreetingUsingArrowFunctions()">Fetch the greeting!</button>
-            <div id="greeting-container"></div>
 
             <a target="_blank" rel="noopener noreferrer" href="https://www.cmu.edu/">Where I am half way through my journey to a computer science major and psychology minor...</a><br>
             <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/place/Shenzhen,+Guangdong+Province,+China/@22.5549176,113.7736861,10z/data=!3m1!4b1!4m5!3m4!1s0x3403f408d0e15291:0xfdee550db79280c9!8m2!3d22.543096!4d114.057865">Where I spent the first 12 years of my life...</a><br>
@@ -39,6 +37,15 @@
             
         </div>
         <div id="movie-container"><body onload="movieRecommender()" id="movies" class="section"></div><br>
+        <div id="comments">
+            <h2>Comments</h2>
+            <form action="/data" method="POST">
+                <label for="new-comment">Leave your movie recommendation here: </label>
+                <input type="text" id="new-comment" name='new-comment'>
+                <input type="submit" value="Submit">
+            </form>
+            <div id="comment-container"><body onload="getComments()"></div>
+        </div>
         
         <div id="tech-corner" class="section">
             <h2 class="right-title">Tech Corner</h2>
