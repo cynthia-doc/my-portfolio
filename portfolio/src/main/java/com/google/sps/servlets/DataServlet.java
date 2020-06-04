@@ -26,16 +26,34 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-    ArrayList<String> list = new ArrayList<>();
+    private ArrayList<String> list = new ArrayList<>();
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        list.add("The Chorus");
-        list.add("Whisper of the Heart");
-        list.add("The Devil Wears Prada");
-        
         response.setContentType("text/html;");
         String json = new Gson().toJson(list);
         response.getWriter().println(json);
     }
+
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String comment = getComment(request, "new-comment", "");
+        
+        if (!comment.equals("")) {
+            list.add(comment);
+        }
+        
+        response.sendRedirect("/index.html");
+    }
+
+    private String getComment(HttpServletRequest request, String name, String defaultValue) {
+        String comment = request.getParameter(name);
+
+        if (comment == null) {
+            comment = defaultValue;
+        }
+        return comment;
+    }
+
+ 
 }
