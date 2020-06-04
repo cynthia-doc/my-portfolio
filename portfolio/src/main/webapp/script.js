@@ -69,7 +69,7 @@ function movieRecommender() {
 }
 
 function getComments() {
-    fetch('/data').then(response => response.json()).then((comment) => {
+    fetch('/data').then((response) => response.json()).then((comment) => {
         const container = document.getElementById('comment-container');
         container.innerHTML = '';
 
