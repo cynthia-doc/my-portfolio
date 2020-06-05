@@ -21,10 +21,11 @@
             <h2>About</h2>
            
             <div class="image-box">
-                <img src="/images/profile3.jpg" alt="me in Hokkaido, Japan" class="image" width="560px" height="420px" align="middle">
+                <img src="./images/profile3.jpg" alt="me in Hokkaido, Japan" class="image" width="560px" height="420px" align="middle">
             </div>
 
             <p class="intro">Hello there! This is Cynthia Hu and welcome to my portfolio.</p>
+
             <a target="_blank" rel="noopener noreferrer" href="https://www.cmu.edu/">Where I am half way through my journey to a computer science major and psychology minor...</a><br>
             <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/place/Shenzhen,+Guangdong+Province,+China/@22.5549176,113.7736861,10z/data=!3m1!4b1!4m5!3m4!1s0x3403f408d0e15291:0xfdee550db79280c9!8m2!3d22.543096!4d114.057865">Where I spent the first 12 years of my life...</a><br>
             <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/place/Fremont,+CA/data=!4m2!3m1!1s0x808fbf46b7e8caf7:0x8ada313b89d888d4?sa=X&ved=2ahUKEwj4sOqN_NfpAhWX4J4KHU3xDUMQ8gEwIHoECBoQBg">Where I've been spending my life at after the first 12 years...</a><br>
@@ -35,7 +36,20 @@
             <p>And here are some movies I love:</p>
             
         </div>
-        <div id="movie-container"><body onload="movieRecommender()" id="movies" class="section"></div><br>
+        <div id="movie-container"><body onload="onLoad()" id="movies" class="section"></div><br>
+
+        <div id="comment-section">
+            <h2>Comments</h2>
+            <form action="/data" method="POST">
+                <label for="new-comment">Leave your movie recommendation here: </label>
+                <input type="text" id="new-comment" name='new-comment'>
+                <input type="submit" value="Submit" class="submit-button"><br>
+                <label for="max-display">View (min 1, max 10) comments: </label> 
+                <input type="number" min="1" max="10" name="max-display">
+                <input type="submit" class="submit-button">
+
+            <ul id="comment-container"></ul><br>
+        </div>
         
         <div id="tech-corner" class="section">
             <h2 class="right-title">Tech Corner</h2>
@@ -98,61 +112,61 @@
                 <!-- Full-width images with number and caption text -->
                 <div id="first-slide" class="fade">
                     <div class="numbertext">1 / 10</div>
-                    <img src="/images/Shenzhen.jpg" style="width:100%">
+                    <img src="./images/Shenzhen.jpg">
                     <div class="text">Shenzhen, China</div>
                 </div>
 
                 <div class="slides fade">
                     <div class="numbertext">2 / 10</div>
-                    <img src="/images/Osaka.jpg" style="width:100%">
+                    <img src="./images/Osaka.jpg">
                     <div class="text">Osaka, Japan</div>
                 </div>
 
                 <div class="slides fade">
                     <div class="numbertext">3 / 10</div>
-                    <img src="/images/Chicago.jpg" style="width:100%">
+                    <img src="./images/Chicago.jpg">
                     <div class="text">Chicago, US</div>
                 </div>
 
                 <div class="slides fade">
                     <div class="numbertext">4 / 10</div>
-                    <img src="/images/Pittsburgh.jpg" style="width:100%">
+                    <img src="./images/Pittsburgh.jpg">
                     <div class="text">Pittsburgh, US</div>
                 </div>
 
                 <div class="slides fade">
                     <div class="numbertext">5 / 10</div>
-                    <img src="/images/Beijing.jpg" style="width:100%">
+                    <img src="./images/Beijing.jpg">
                     <div class="text">Beijing, China</div>
                 </div>
 
                 <div class="slides fade">
                     <div class="numbertext">6 / 10</div>
-                    <img src="/images/Hongkong.jpg" style="width:100%">
+                    <img src="./images/Hongkong.jpg">
                     <div class="text">Hongkong, China</div>
                 </div>
 
                 <div class="slides fade">
                     <div class="numbertext">7 / 10</div>
-                    <img src="/images/Tokyo.jpg" style="width:100%">
+                    <img src="./images/Tokyo.jpg">
                     <div class="text">Tokyo, Japan</div>
                 </div>
 
                 <div class="slides fade">
                     <div class="numbertext">8 / 10</div>
-                    <img src="/images/SF.jpg" style="width:100%">
+                    <img src="./images/SF.jpg">
                     <div class="text">San Francisco, US</div>
                 </div>
 
                 <div class="slides fade">
                     <div class="numbertext">9 / 10</div>
-                    <img src="/images/Hokkaido.jpg" style="width:100%">
+                    <img src="./images/Hokkaido.jpg">
                     <div class="text">Sapporo, Japan</div>
                 </div>
 
                 <div class="slides fade">
                     <div class="numbertext">10 / 10</div>
-                    <img src="/images/Hangzhou.jpg" style="width:100%">
+                    <img src="./images/Hangzhou.jpg">
                     <div class="text">Hangzhou, China</div>
                 </div>
 

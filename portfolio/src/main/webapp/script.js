@@ -16,24 +16,29 @@ let slideIndex = 1;
 
 /** Flips slides to the previous or next page */
 function plusSlides(n) {
-  showSlides(slideIndex += n);
+    showSlides(slideIndex += n);
 }
 
 function showSlides(n) {
-  let slides = document.getElementsByClassName("slides");
-  let firstSlide = document.getElementById("first-slide");
-  if (n > slides.length + 1) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length + 1}
-  for (let index = 0; index < slides.length; index++) {
-      slides[index].style.display = "none";
-  }
-  if (slideIndex < 2) {
-      firstSlide.style.display = "block";
-  }
-  else{
-      slides[slideIndex - 2].style.display = "block";
-      firstSlide.style.display = "none";
-  }
+    let slides = document.getElementsByClassName("slides");
+    let firstSlide = document.getElementById("first-slide");
+    if (n > slides.length + 1) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length + 1}
+    for (let index = 0; index < slides.length; index++) {
+        slides[index].style.display = "none";
+    }
+    if (slideIndex < 2) {
+        firstSlide.style.display = "block";
+    }
+    else{
+        slides[slideIndex - 2].style.display = "block";
+        firstSlide.style.display = "none";
+    }
+}
+
+function onLoad(){
+    movieRecommender();
+    getComments();
 }
 
 /**
@@ -63,4 +68,21 @@ function movieRecommender() {
     next();
 }
 
+function getComments() {
+    fetch('/data').then((response) => response.json()).then((comment) => {
+        const container = document.getElementById('comment-container');
+        container.innerHTML = '';
 
+        for(let i = 0; i < comment.length; i++) {
+            container.appendChild(createListElement(comment[i]));
+            console.log(comment[i]);
+        }
+    });
+}
+
+/** Creates an <li> element containing text. */
+function createListElement(text) {
+    const liElement = document.createElement('li');
+    liElement.innerText = text;
+    return liElement;
+}

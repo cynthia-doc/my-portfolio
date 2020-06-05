@@ -12,6 +12,17 @@
     background-size: contain;
 }
 
+#greeting-button {
+    font-family: "Lato", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #2E4A62;
+    font-size: 16px;
+    background-color: #F0EDE5;
+}
+
+#greeting-container {
+    margin-bottom: 20px;
+}
+
 .image-box{
     float: right;
     width: 40%;
@@ -49,17 +60,50 @@ p.intro, div a {
     align-items: center;
 }
 
-#movies{
+#movies {
     font-family: 'Major Mono Display', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: #a2a6a9;
     font-size: 25px;
     text-decoration: none;
 }
 
+#comment-section {
+    background: #f2f2f3;
+    margin-top: 15px;
+}
+
+#comment-container {
+    background-color: #F0EDE5;
+    margin: 10px 10px 0 10px;
+    border-top: 4px dotted white;
+}
+
+#comment-container li {
+    font-family: "Lato", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #2E4A62;
+    font-size: 18px;
+    list-style-type: none;
+    line-height: 1.5;
+}
+
+label[for="max-display"] {
+    font-family: "Lato", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #2E4A62;
+    font-size: 15px;
+    text-decoration: none;
+    line-height: 1.5;
+}
+
+.submit-button {
+    font-family: "Lato", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #2E4A62;
+    background-color: #F0EDE5;
+}
 
 /* tech corner setting */
 #tech-corner {
     background-color: #F0EDE5;
+    margin-top:10px;
 }
 
 #tech-corner p{
@@ -163,6 +207,10 @@ p.intro, div a {
     animation-duration: 1.5s;
 }
 
+.fade img {
+    width: 100%;
+}
+
 @-webkit-keyframes fade {
     from {opacity: .4} 
     to {opacity: 1}
@@ -204,7 +252,7 @@ h2 {
     margin: 0 10px;
 }
 
-p, a {
+p, a, label[for="new-comment"] {
     font-family: "Lato", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: #2E4A62;
     font-size: 23px;
