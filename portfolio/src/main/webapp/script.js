@@ -87,6 +87,7 @@ function createListElement(text) {
     return liElement;
 }
 
+/** Refetch comments after all comments are deleted */
 function deleteComments() {
     const request = new Request('/delete-data', {method: 'POST'});
     fetch(request).then(() => getComments());
