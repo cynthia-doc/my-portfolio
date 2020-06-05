@@ -98,6 +98,7 @@ label[for="max-display"] {
     font-family: "Lato", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: #2E4A62;
     background-color: #F0EDE5;
+    margin: 0 0 10px 10px;
 }
 
 /* tech corner setting */
