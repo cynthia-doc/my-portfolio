@@ -63,7 +63,7 @@ public class DataServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String comment = getComment(request, "new-comment", "");
         
-        if (!comment.equals("")) {
+        if (!comment.isEmpty()) {
             Entity commentEntity = new Entity("Entity");
             commentEntity.setProperty("comment", comment); 
             long timestamp = System.currentTimeMillis();
