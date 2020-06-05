@@ -20,6 +20,9 @@ import com.google.gson.Gson;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.SortDirection;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,10 +32,22 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-    private ArrayList<String> list = new ArrayList<>();
+    private boolean initialPage = true;
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        ArrayList<String> list = new ArrayList<>();
+
+        Query query = new Query("Entity").addSort("timestamp", SortDirection.DESCENDING);
+
+        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+        PreparedQuery results = datastore.prepare(query);
+        
+        for(Entity entity: results.asIterable()) {
+            String comment = (String) entity.getProperty("comment");
+            list.add(comment);
+        }
+
         response.setContentType("text/html;");
         String json = new Gson().toJson(list);
         response.getWriter().println(json);
@@ -43,16 +58,17 @@ public class DataServlet extends HttpServlet {
         String comment = getComment(request, "new-comment", "");
         
         if (!comment.equals("")) {
-            list.add(comment);
+            initialPage = false;
+
+            Entity commentEntity = new Entity("Entity");
+            commentEntity.setProperty("comment", comment); 
+            long timestamp = System.currentTimeMillis();
+            commentEntity.setProperty("timestamp", timestamp);
+
+            DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+            datastore.put(commentEntity); 
         }
 
-        Entity commentEntity = new Entity("Entity");
-        String jsonArr = new Gson().toJson(list);
-        commentEntity.setProperty("comments", jsonArr);
-
-        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-        datastore.put(commentEntity);  
-        
         response.sendRedirect("/index.html");
     }
 

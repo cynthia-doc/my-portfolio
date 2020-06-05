@@ -75,6 +75,7 @@ function getComments() {
 
         for(let i = 0; i < comment.length; i++) {
             container.appendChild(createListElement(comment[i]));
+            console.log(comment[i]);
         }
     });
 }
