@@ -100,6 +100,10 @@ label[for="max-display"] {
     background-color: #F0EDE5;
 }
 
+#delete-button {
+    margin: 0 0 10px 10px;
+}
+
 /* tech corner setting */
 #tech-corner {
     background-color: #F0EDE5;
