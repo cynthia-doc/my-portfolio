@@ -225,6 +225,11 @@ label[for="max-display"] {
     to {opacity: 1}
 }
 
+#map {
+    height: 400px; 
+    width: 50%;
+    margin: 0 auto 20px auto;
+}
 
 /* contact section setting */
 #contact {
