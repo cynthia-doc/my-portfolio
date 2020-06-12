@@ -39,8 +39,9 @@ function showSlides(n) {
 document.getElementById('movie-container').addEventListener("load", movieRecommender());
 window.addEventListener("load", getComments());
 document.getElementById('map').addEventListener("load", createMap());
-
-
+window.addEventListener('load', fetchUpload());
+document.getElementById('poster-container').addEventListener('load', getPosters());
+ 
 /**
  * Recommend movies
  */
@@ -90,6 +91,33 @@ function createListElement(text) {
 function deleteComments() {
     const request = new Request('/delete-data', {method: 'POST'});
     fetch(request).then(() => getComments());
+}
+
+function fetchUpload() {
+    fetch('/blobstore-upload').then((response) => {return response.text();})
+    .then((uploadUrl) => {
+        const messageForm = document.getElementById('upload');
+        messageForm.action = uploadUrl;
+        messageForm.classList.remove('hidden');
+        console.log("hidden removed");
+    })
+}
+
+function getPosters() {
+    fetch('upload-handler').then((response) => response.json()).then((imageUrl) => {
+        const container = document.getElementById('poster-container');
+        container.innerHTML = '';
+
+        for(let i = 0; i < imageUrl.length; i++) {
+            container.appendChild(createImgElement(imageUrl[i]));
+        }
+    });
+}
+
+function createImgElement(text) {
+    const imgElement = document.createElement('img');
+    imgElement.src = text;
+    return imgElement;
 }
 
 function createMap() {
@@ -287,4 +315,5 @@ function createMap() {
     hzMarker.addListener('click', function() {
         hzInfo.open(map, hzMarker);
     });
+
 }

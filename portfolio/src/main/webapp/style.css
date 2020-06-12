@@ -104,6 +104,10 @@ label[for="max-display"] {
     margin: 0 0 10px 10px;
 }
 
+.hidden {
+    display: none;
+}
+
 /* tech corner setting */
 #tech-corner {
     background-color: #F0EDE5;
@@ -261,7 +265,7 @@ h2 {
     margin: 0 10px;
 }
 
-p, a, label[for="new-comment"] {
+p, a, label[for="new-comment"], label[for="movie-poster"] {
     font-family: "Lato", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: #2E4A62;
     font-size: 23px;
