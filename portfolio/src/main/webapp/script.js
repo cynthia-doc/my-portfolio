@@ -20,25 +20,25 @@ function plusSlides(n) {
 }
 
 function showSlides(n) {
-    let slides = document.getElementsByClassName("slides");
-    let firstSlide = document.getElementById("first-slide");
+    let slides = document.getElementsByClassName('slides');
+    let firstSlide = document.getElementById('first-slide');
     if (n > slides.length + 1) {slideIndex = 1}
     if (n < 1) {slideIndex = slides.length + 1}
     for (let index = 0; index < slides.length; index++) {
-        slides[index].style.display = "none";
+        slides[index].style.display = 'none';
     }
     if (slideIndex < 2) {
-        firstSlide.style.display = "block";
+        firstSlide.style.display = 'block';
     }
     else{
-        slides[slideIndex - 2].style.display = "block";
-        firstSlide.style.display = "none";
+        slides[slideIndex - 2].style.display = 'block';
+        firstSlide.style.display = 'none';
     }
 }
 
-document.getElementById('movie-container').addEventListener("load", movieRecommender());
-window.addEventListener("load", getComments());
-document.getElementById('map').addEventListener("load", createMap());
+document.getElementById('movie-container').addEventListener('load', movieRecommender);
+window.addEventListener('load', getComments);
+document.getElementById('map').addEventListener('load', createMap);
 
 
 /**
@@ -103,7 +103,7 @@ function createMap() {
     const szMarker = new google.maps.Marker({
         position: szLatlng,
         map: map,
-        title: "Shenzhen"
+        title: 'Shenzhen'
     });
 
     const szStr = '<p><b>Shenzhen</b>, in southeastern China, is a modern metropolis that links Hong Kong to China’s mainland. ' + 
@@ -122,7 +122,7 @@ function createMap() {
     const osMarker = new google.maps.Marker({
         position: osLatlng,
         map: map,
-        title: "Osaka"
+        title: 'Osaka'
     });
 
     const osStr = '<p><b>Osaka</b> is a large port city and commercial center on the Japanese island of Honshu. ' + 
@@ -141,7 +141,7 @@ function createMap() {
     const chiMarker = new google.maps.Marker({
         position: chiLatlng,
         map: map,
-        title: "Chicago"
+        title: 'Chicago'
     });
 
     const chiStr = '<p><b>Chicago</b>, on Lake Michigan in Illinois, is among the largest cities in the U.S. Famed for its bold architecture, ' + 
@@ -160,7 +160,7 @@ function createMap() {
     const pittMarker = new google.maps.Marker({
         position: pittLatlng,
         map: map,
-        title: "Pittsburgh"
+        title: 'Pittsburgh'
     });
 
     const pittStr = '<p><b>Pittsburgh</b> is a city in western Pennsylvania at the junction of 3 rivers. ' + 
@@ -179,7 +179,7 @@ function createMap() {
     const bjMarker = new google.maps.Marker({
         position: bjLatlng,
         map: map,
-        title: "Beijing"
+        title: 'Beijing'
     });
 
     const bjStr = '<p><b>Beijing</b>, China’s sprawling capital, has history stretching back 3 millennia. ' + 
@@ -199,7 +199,7 @@ function createMap() {
     const hkMarker = new google.maps.Marker({
         position: hkLatlng,
         map: map,
-        title: "Hong Kong"
+        title: 'Hong Kong'
     });
 
     const hkStr = '<p><b>Hong Kong</b> is a metropolitan area and special administrative region of the China in the eastern Pearl River Delta by the South China Sea. ' + 
@@ -218,7 +218,7 @@ function createMap() {
     const tkMarker = new google.maps.Marker({
         position: tkLatlng,
         map: map,
-        title: "Tokyo"
+        title: 'Tokyo'
     });
 
     const tkStr = '<p><b>Tokyo</b>, Japan’s busy capital, mixes the ultramodern and the traditional, from neon-lit skyscrapers to historic temples. ' + 
@@ -237,7 +237,7 @@ function createMap() {
     const sfMarker = new google.maps.Marker({
         position: sfLatlng,
         map: map,
-        title: "San Francisco"
+        title: 'San Francisco'
     });
 
     const sfStr = '<p><b>San Francisco</b> is the cultural, commercial, and financial center of Northern California. ' + 
@@ -256,7 +256,7 @@ function createMap() {
     const spMarker = new google.maps.Marker({
         position: spLatlng,
         map: map,
-        title: "Sapporo"
+        title: 'Sapporo'
     });
 
     const spStr = '<p><b>Sapporo</b>, capital of the mountainous northern Japanese island of Hokkaido, is famous for its beer, ' + 
@@ -275,7 +275,7 @@ function createMap() {
     const hzMarker = new google.maps.Marker({
         position: hzLatlng,
         map: map,
-        title: "Hangzhou"
+        title: 'Hangzhou'
     });
     
     const hzStr = '<p><b>Hangzhou</b>, the capital of China’s Zhejiang province, is the southern terminus of the ancient ' + 
