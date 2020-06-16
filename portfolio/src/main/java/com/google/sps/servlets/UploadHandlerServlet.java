@@ -8,6 +8,7 @@ import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
 import com.google.appengine.api.images.ImagesService;
 import com.google.appengine.api.images.ImagesServiceFactory;
 import com.google.appengine.api.images.ServingUrlOptions;
+import java.util.List;
 import java.util.ArrayList;
 import com.google.gson.Gson;
 import com.google.appengine.api.datastore.DatastoreService;
@@ -34,18 +35,21 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/upload-handler")
 public class UploadHandlerServlet extends HttpServlet {
+    private static final String IMAGE = "Image";
+    private static final String TIMESTAMP = "timestamp";
+    private static final String  POSTER = "poster";
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        ArrayList<String> list = new ArrayList<>();
+        List<String> list = new ArrayList<>();
         
-        Query query = new Query("Image").addSort("timestamp", SortDirection.DESCENDING);
+        Query query = new Query(IMAGE).addSort(TIMESTAMP, SortDirection.DESCENDING);
 
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         PreparedQuery results = datastore.prepare(query);
         
-        for(Entity entity: results.asIterable()) {
-            String imageUrl = (String) entity.getProperty("poster");
+        for (Entity entity: results.asIterable()) {
+            String imageUrl = (String) entity.getProperty(POSTER);
             list.add(imageUrl);
         }
 
@@ -60,24 +64,13 @@ public class UploadHandlerServlet extends HttpServlet {
         // Get the URL of the image that the user uploaded to Blobstore.
         String imageUrl = getUploadedFileUrl(request, "movie-poster");
 
-        System.out.println("image url: " + imageUrl);
-        
-        Entity posterEntity = new Entity("Image");
-        posterEntity.setProperty("poster", imageUrl);
+        Entity posterEntity = new Entity(IMAGE);
+        posterEntity.setProperty(POSTER, imageUrl);
         long timestamp = System.currentTimeMillis();
-        posterEntity.setProperty("timestamp", timestamp);
+        posterEntity.setProperty(TIMESTAMP, timestamp);
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         datastore.put(posterEntity);
-
         response.sendRedirect("/index.html");
-
-         // Output some HTML that shows the data the user entered.
-
-        PrintWriter out = response.getWriter();
-        out.println("<p>Here's the image you uploaded:</p>");
-        out.println("<a href=\"" + imageUrl + "\">");
-        out.println("<img src=\"" + imageUrl + "\" />");
-        out.println("</a>");
     }
 
     /** Returns a URL that points to the uploaded file, or null if the user didn't upload a file. */
