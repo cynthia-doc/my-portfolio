@@ -47,8 +47,14 @@
                 <label for="max-display">View (min 1, max 10) comments: </label> 
                 <input type="number" min="1" max="10" name="max-display">
                 <input type="submit" class="submit-button">
-
+            </form>
+            <form id="upload" class="hidden" method="POST" enctype="multipart/form-data">
+                <label for="movie-poster">Upload the movie poster here: </label>
+                <input type="file" name="movie-poster">
+                <input type="submit" value="Submit" class="submit-button">
+            </form>
             <ul id="comment-container"></ul><br>
+            <div id="poster-container"></div><br>
             <button type="button" class="submit-button" id="delete-button" onclick="deleteComments()">Delete all comments</button> 
         </div>
 
