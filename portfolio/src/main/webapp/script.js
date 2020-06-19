@@ -100,7 +100,6 @@ function fetchUpload() {
         const messageForm = document.getElementById('upload');
         messageForm.action = uploadUrl;
         messageForm.classList.remove('hidden');
-        console.log('hidden removed');
     })
 }
 
