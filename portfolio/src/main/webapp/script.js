@@ -42,6 +42,11 @@ window.addEventListener('load', createMap);
 window.addEventListener('load', fetchUpload);
 window.addEventListener('load', getPosters);
  
+document.getElementById('movie-container').addEventListener('load', movieRecommender);
+window.addEventListener('load', getComments);
+document.getElementById('map').addEventListener('load', createMap);
+
+
 /**
  * Recommend movies
  */
@@ -163,7 +168,7 @@ function createMap() {
         map: map,
         title: 'Chicago'
     }));
-
+  
     strArr.push('<p><b>Chicago</b>, on Lake Michigan in Illinois, is among the largest cities in the U.S. Famed for its bold architecture, ' + 
         'it has a skyline punctuated by skyscrapers such as the iconic John Hancock Center, 1,451-ft. Willis Tower, and the neo-Gothic Tribune Tower. ' + 
         'The city is also renowned for its museums, including the Art Institute of Chicago, the second largest art museum in the U.S.</p>');

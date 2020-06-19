@@ -232,7 +232,7 @@ label[for="max-display"] {
 #map {
     height: 400px; 
     width: 50%;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 20px;
 }
 
 /* contact section setting */
