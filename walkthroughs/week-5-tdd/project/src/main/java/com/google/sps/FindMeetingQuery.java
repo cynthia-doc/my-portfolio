@@ -22,14 +22,9 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-/** TODO: */
+/** Find available meeting time slots */
 public final class FindMeetingQuery {
-  /**
-   * TODO:
-   * @param events
-   * @param request
-   * @return
-   */
+  /** Get events of requested attendees */
   private List<Event> getRelevantEvents(Collection<Event> events, MeetingRequest request){
     List<Event> relevantEvents = new ArrayList<>();
     Iterator<Event> iter = events.iterator();
@@ -56,6 +51,7 @@ public final class FindMeetingQuery {
     }
   };
 
+  /** check if time from start to end is at least length of duration */
   private boolean checkTimeRange (int start, int end, long duration) {
     if (((long)(end - start)) < duration) {
       return false;
@@ -63,12 +59,7 @@ public final class FindMeetingQuery {
     return true;
   }
 
-  /**
-   * TODO:
-   * @param events
-   * @param request
-   * @return
-   */
+  /** Find available timeranges given a meeting request */
   public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
     List<Event> relevantEvents = getRelevantEvents(events, request);
     relevantEvents.sort(SORT_EVENT_BY_START);
