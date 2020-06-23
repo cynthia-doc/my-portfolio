@@ -25,11 +25,10 @@ import java.util.Set;
 /** Find available meeting time slots */
 public final class FindMeetingQuery {
   /** Get events of requested attendees */
-  private List<Event> getRelevantEvents(Collection<Event> events, MeetingRequest request){
+  private List<Event> getRelevantEvents(Collection<Event> events, Collection<String> requestedAttendee){
     List<Event> relevantEvents = new ArrayList<>();
     Iterator<Event> iter = events.iterator();
     Event currEvent;
-    Collection<String> requestedAttendee = request.getAttendees();
     Set<String> meetingAttendee = new HashSet<>();
     while(iter.hasNext()){
       currEvent = iter.next();
@@ -59,14 +58,14 @@ public final class FindMeetingQuery {
     return true;
   }
 
-  /** Find available timeranges given a meeting request */
-  public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
-    List<Event> relevantEvents = getRelevantEvents(events, request);
+  /** Find available timeranges given requested attendees */
+  public Collection<TimeRange> queryHelper(Collection<Event> events, 
+  Collection<String> attendees, long duration) {
+    List<Event> relevantEvents = getRelevantEvents(events, attendees);
     relevantEvents.sort(SORT_EVENT_BY_START);
 
     int start = TimeRange.START_OF_DAY;
     int end = TimeRange.START_OF_DAY;
-    long duration = request.getDuration();
     int currStart;
     TimeRange prevTimeRange = TimeRange.fromStartDuration(0, 0);
     TimeRange currTimeRange;
@@ -100,6 +99,26 @@ public final class FindMeetingQuery {
       possibleTime.add(TimeRange.fromStartEnd(start, TimeRange.END_OF_DAY, true));
     }
 
-    return possibleTime;
+    return possibleTime; 
+  } 
+
+  /** Find available timeranges given a meeting request */
+  public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
+    long duration = request.getDuration();
+    Collection<String> requiredAttendees = request.getAttendees();
+    List<String> withOptionalAttendees = new ArrayList<>();
+    withOptionalAttendees.addAll(requiredAttendees);
+    withOptionalAttendees.addAll(request.getOptionalAttendees());
+
+    Collection<TimeRange> requiredSlots = queryHelper(events, requiredAttendees, duration);
+    Collection<TimeRange> withOptionalSlots = queryHelper(events, withOptionalAttendees, duration);
+
+    if(requiredAttendees.isEmpty()) {
+      return withOptionalSlots;
+    }
+    else if(withOptionalSlots.isEmpty()) {
+      return requiredSlots;
+    }
+    return withOptionalSlots;
   }
 }
