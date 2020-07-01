@@ -45,7 +45,7 @@ public final class FindMeetingQuery {
   }
 
   /** check if time from start to end is at least length of duration */
-  private boolean isTimeRangeLongEnough(long start, long end, long duration) {
+  private boolean isTimeRangeLongEnough(int start, int end, long duration) {
     if ((end - start) < duration) {
       return false;
     }
@@ -70,7 +70,7 @@ public final class FindMeetingQuery {
       currStart = currTimeRange.start();
       if (prevTimeRange.contains(currTimeRange)) {
         continue;
-      }  else if (prevTimeRange.overlaps(currTimeRange)) {
+      } else if (prevTimeRange.overlaps(currTimeRange)) {
         start = currTimeRange.end();
       } else {
         end = currStart;
@@ -83,6 +83,7 @@ public final class FindMeetingQuery {
       prevEvent = currEvent;
       prevTimeRange = currTimeRange;
     }
+    /** Add time range from the end of last meeting to the end of the day */
     if (isTimeRangeLongEnough(start, TimeRange.END_OF_DAY, duration)) {
       possibleTimes.add(TimeRange.fromStartEnd(start, TimeRange.END_OF_DAY, true));
     }
