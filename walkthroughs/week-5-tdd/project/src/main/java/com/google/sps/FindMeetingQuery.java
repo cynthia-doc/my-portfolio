@@ -27,14 +27,13 @@ public final class FindMeetingQuery {
   /** Get events of requested attendees */
   private List<Event> getRelevantEvents(Collection<Event> events, Collection<String> requestedAttendee){
     List<Event> relevantEvents = new ArrayList<>();
-    Set<String> meetingAttendee = new HashSet<>();
     for (Event currEvent : events){
+      Set<String> meetingAttendee = new HashSet<>();
       meetingAttendee.addAll(currEvent.getAttendees());
       meetingAttendee.retainAll(requestedAttendee);
       if(!meetingAttendee.isEmpty()){
         relevantEvents.add(currEvent);
       }
-      meetingAttendee.clear();
     }
 
     return relevantEvents;
@@ -48,8 +47,8 @@ public final class FindMeetingQuery {
   };
 
   /** check if time from start to end is at least length of duration */
-  private boolean checkTimeRange (int start, int end, long duration) {
-    if (((long)(end - start)) < duration) {
+  private boolean isTimeRangeLongEnough (long start, long end, long duration) {
+    if ((end - start) < duration) {
       return false;
     }
     return true;
@@ -61,8 +60,8 @@ public final class FindMeetingQuery {
     List<Event> relevantEvents = getRelevantEvents(events, attendees);
     relevantEvents.sort(SORT_EVENT_BY_START);
 
-    int start = TimeRange.START_OF_DAY;
-    int end = TimeRange.START_OF_DAY;
+    long start = TimeRange.START_OF_DAY;
+    long end = TimeRange.START_OF_DAY;
     int currStart;
     TimeRange prevTimeRange = TimeRange.fromStartDuration(0, 0);
     TimeRange currTimeRange;
@@ -85,14 +84,14 @@ public final class FindMeetingQuery {
         end = currStart;
       }
 
-      if(checkTimeRange(start, end, duration)){
+      if(isTimeRangeLongEnough(start, end, duration)){
         possibleTime.add(TimeRange.fromStartEnd(start, end, false));
       }
       start = currTimeRange.end();
       prevEvent = currEvent;
       prevTimeRange = currTimeRange;
     }
-    if(checkTimeRange(start, TimeRange.END_OF_DAY, duration)){
+    if(isTimeRangeLongEnough(start, TimeRange.END_OF_DAY, duration)){
       possibleTime.add(TimeRange.fromStartEnd(start, TimeRange.END_OF_DAY, true));
     }
 
