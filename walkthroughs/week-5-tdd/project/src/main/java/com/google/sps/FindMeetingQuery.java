@@ -27,14 +27,11 @@ public final class FindMeetingQuery {
   /** Get events of requested attendees */
   private List<Event> getRelevantEvents(Collection<Event> events, Collection<String> requestedAttendee){
     List<Event> relevantEvents = new ArrayList<>();
-    Iterator<Event> iter = events.iterator();
-    Event currEvent;
     Set<String> meetingAttendee = new HashSet<>();
-    while(iter.hasNext()){
-      currEvent = iter.next();
+    for (Event currEvent : events){
       meetingAttendee.addAll(currEvent.getAttendees());
       meetingAttendee.retainAll(requestedAttendee);
-      if(meetingAttendee.size() != 0){
+      if(!meetingAttendee.isEmpty()){
         relevantEvents.add(currEvent);
       }
       meetingAttendee.clear();
@@ -75,11 +72,11 @@ public final class FindMeetingQuery {
     for(Event currEvent: relevantEvents) {
       currTimeRange = currEvent.getWhen();
       currStart = currTimeRange.start();
-      if (prevEvent == null && currStart != TimeRange.START_OF_DAY) {
-        end = currStart;
-      }
-      else if(prevTimeRange.contains(currTimeRange)){
+      if(prevTimeRange.contains(currTimeRange)){
         continue;
+      }
+      else if (prevEvent == null && currStart != TimeRange.START_OF_DAY) {
+        end = currStart;
       }
       else if(prevTimeRange.overlaps(currTimeRange)){
         start = currTimeRange.end();
